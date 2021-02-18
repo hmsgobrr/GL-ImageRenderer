@@ -2,14 +2,14 @@ CXX = g++
 
 BUILD_TYPE ?= DEBUG
 
-OUTPUT_FILE ?= bin/main
+OUTPUT_FILE ?= bin/glir
 
-GLFW ?= D:/glfw-3.3.2.bin.WIN64
-GLAD ?= D:/glad
+GLFW ?= ./include/vendor/glfw
+GLAD ?= ./include/vendor/glad
 
 INCLUDE_FILES = -I./include -I./include/vendor -I$(GLFW)/include -I$(GLAD)/include
 CFLAGS = -std=c++14 -Wall
-LDFLAGS = -L$(GLFW)/lib-mingw-w64 -L$(GLAD)/lib -lglfw3 -lglad -lopengl32 -lgdi32
+LDFLAGS = -L$(GLFW)/lib -L$(GLAD)/lib -lglfw3 -lglad -lopengl32 -lgdi32
 
 ifeq ($(BUILD_TYPE), RELEASE)
 	CFLAGS += -O3
